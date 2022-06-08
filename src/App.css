@@ -1,0 +1,7 @@
+.container {
+  background-image: url("/public/Background.jpg");
+  background-color: #282c34;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}

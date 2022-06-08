@@ -1,0 +1,32 @@
+.metric-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    min-width: 30vh;
+    min-height: 30vh;
+    margin: 1rem;
+    border-radius: 30px;
+    background-color: rgb(88 91 99 / 76%);
+}
+
+.metric-sub-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-container {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    background-color: #4276f2;
+}
+
+.metric-value {
+    font-size: xxx-large;
+}
