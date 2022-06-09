@@ -3,6 +3,25 @@ import { useParams } from "react-router-dom";
 import '../styles/Dashboard.css';
 import Metric from './Metric';
 
+
+function computeAirQuality(index){
+  if(index <= 2){
+    return 'Very Good'
+  }
+  else if(index > 2 && index <= 3){
+    return 'Good'
+  }
+  else if(index > 3 && index <= 4){
+    return 'Medium'
+  }
+  else if(index > 4 && index <= 5){
+    return 'Poor'
+  }
+  else if(index > 5){
+    return 'Bad'
+  }
+}
+
 const Dashboard = (props) => {
     let params = useParams();
     const [data, setData] = useState([]);
@@ -51,7 +70,7 @@ const Dashboard = (props) => {
 
           tmpMetrics.push({
             name: "Air Quality",
-            value: `${navigators[0].RoomAnalytics.AirQuality.Index}%`,
+            value: computeAirQuality(navigators[0].RoomAnalytics.AirQuality.Index),
             logo: "MdOutlineAir"
           })
         }
