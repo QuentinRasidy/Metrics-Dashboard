@@ -3,6 +3,10 @@ import { useParams } from "react-router-dom";
 import '../styles/Dashboard.css';
 import Metric from './Metric';
 
+const people_presence_server_port = process.env.PEOPLE_PRESENCE_SERVER_PORT || 15008;
+const people_presence_server_url = process.env.PEOPLE_PRESENCE_SERVER_URL || "10.1.20.21";
+
+
 
 function computeAirQuality(index){
   if(index <= 2){
@@ -20,13 +24,15 @@ function computeAirQuality(index){
   else if(index > 5){
     return 'Bad'
   }
-}
+} 
 
 const Dashboard = (props) => {
     let params = useParams();
     const [data, setData] = useState([]);
     useEffect(() => {
-      const url = `http://websrv2.ciscofrance.com:15133/codec/${params.mac}`
+      const url = 'http://'+people_presence_server_url+':'+people_presence_server_port+`/codec/${params.mac}`
+      //console.log('url is : '+url)
+      //const url = `http://`+people_presence_server_url+`:`+people_presence_server_port+`/codec/${params.mac}`
       const interval = setInterval(() => {
         fetch(url)
       .then((result) => result.json())
